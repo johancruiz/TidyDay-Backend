@@ -55,8 +55,6 @@ public class AuthController {
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<AuthResponse>sigin(RequestBody LoginRequest loginRequest){
 
-    }
 
 }
