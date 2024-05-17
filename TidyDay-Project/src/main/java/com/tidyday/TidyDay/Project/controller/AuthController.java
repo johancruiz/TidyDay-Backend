@@ -26,7 +26,7 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    private CustomerUserDetailslmpl customeUserDetails;
+    private CustomerUserDetailslmpl customerUserDetails;
 
     @PostMapping("/signup")
     public ResponseEntity<User>createUserHandler(@RequestBody User user) throws Exception {
@@ -36,6 +36,7 @@ public class AuthController {
         if(isUserExist!=null){
             throw new Exception("Email already exist with another account");
         }
+
         User createdUser=new User();
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
         createdUser.setEmail((user.getEmail()));
@@ -48,7 +49,7 @@ public class AuthController {
 
         String jwt= JwtProvider.generateToken(authentication);
 
-        AuthResponse res =new AuthResponse();
+        AuthResponse res = new AuthResponse();
         res.setMessage("signup success");
         res.setJwt(jwt);
 

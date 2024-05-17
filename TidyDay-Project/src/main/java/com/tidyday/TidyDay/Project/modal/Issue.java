@@ -12,4 +12,7 @@ public class Issue {
 
     @ManyToOne
     private User assignee;
+
+    @ManyToOne
+    private Event event;
 }

@@ -1,5 +1,4 @@
 package com.tidyday.TidyDay.Project.request;
-
 import lombok.Data;
 
 @Data
