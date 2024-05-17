@@ -3,10 +3,14 @@ package com.tidyday.TidyDay.Project.controller;
 
 import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.repository.UserRepository;
+import com.tidyday.TidyDay.Project.response.AuthResponse;
 import com.tidyday.TidyDay.Project.service.CustomerUserDetailslmpl;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -38,8 +42,20 @@ public class AuthController {
 
         User savedUser = userRepository.save(createdUser);
 
+        Authentication authentication =new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String jwt= Jwtprovider.generateToken(authentication);
+
+        AuthResponse res=new AuthResponse();
+        res.setMessage("signup success");
+        res.setJwt(jwt);
+
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<AuthResponse>sigin(RequestBody LoginRequest loginRequest){
+
+    }
 
 }
