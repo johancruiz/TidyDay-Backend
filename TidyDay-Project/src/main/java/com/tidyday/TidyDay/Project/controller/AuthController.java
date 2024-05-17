@@ -80,7 +80,7 @@ public class AuthController {
 
     private Authentication authenticate(String username, String password) {
 
-        UserDetails userDetails=customeUserDetails.loadUserByUsername(username);
+        UserDetails userDetails=customerUserDetails.loadUserByUsername(username);
         if (userDetails==null){
             throw  new BadCredentialsException("invalid username");
         }
