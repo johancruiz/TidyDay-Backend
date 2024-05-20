@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Event {
+public class Schedule {
      @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

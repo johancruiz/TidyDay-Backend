@@ -11,5 +11,5 @@ public class Chat {
     private Long id;
 
     @OneToOne
-    private Event event;
+    private Schedule schedule;
 }

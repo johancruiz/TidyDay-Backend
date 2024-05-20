@@ -14,5 +14,5 @@ public class Issue {
     private User assignee;
 
     @ManyToOne
-    private Event event;
+    private Schedule schedule;
 }
