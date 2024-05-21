@@ -3,12 +3,18 @@ package com.tidyday.TidyDay.Project.service;
 import com.tidyday.TidyDay.Project.modal.Chat;
 import com.tidyday.TidyDay.Project.modal.Schedule;
 import com.tidyday.TidyDay.Project.modal.User;
+import com.tidyday.TidyDay.Project.repository.ScheduleRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ScheduleServiceImpl  implements  ScheduleService{
+
+    @Autowired
+    private ScheduleRepository scheduleRepository;
+
 
 
     @Override
