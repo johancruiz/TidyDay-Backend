@@ -1,5 +1,6 @@
 package com.tidyday.TidyDay.Project.modal;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,6 +26,10 @@ public class Issue {
     @ManyToOne
     private User assignee;
 
+    @JsonIgnore
     @ManyToOne
     private Schedule schedule;
+
+    @OneToMany(mappedBy = "issue", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments = new ArrayList<>();
 }
