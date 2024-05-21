@@ -3,7 +3,7 @@ package com.tidyday.TidyDay.Project.modal;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Array;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String fullName;
