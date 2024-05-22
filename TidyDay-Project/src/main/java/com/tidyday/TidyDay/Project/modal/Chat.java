@@ -2,11 +2,18 @@ package com.tidyday.TidyDay.Project.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Chat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

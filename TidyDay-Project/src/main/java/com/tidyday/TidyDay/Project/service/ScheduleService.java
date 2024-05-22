@@ -22,4 +22,6 @@ public interface ScheduleService {
     void removeUserFromSchedule(Long scheduleId, Long userId ) throws Exception;
 
     Chat getChatByScheduleId(Long scheduleId) throws Exception;
+
+    List<Schedule> searchSchedules(String keyword, User user)throws Exception;
 }

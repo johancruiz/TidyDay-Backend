@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
         if (user==null){
             throw new Exception("User nor found");
         }
-        return null;
+        return user;
     }
 
     @Override
@@ -36,11 +36,13 @@ public class UserServiceImpl implements UserService{
         if (optionalUser.isEmpty()){
             throw new Exception("User not found");
         }
-        return null;
+        return optionalUser.get();
     }
 
     @Override
     public User updateUserProjectSize(User user, int number) {
-        return null;
+        user.setProjectSize(user.getProjectSize()*number);
+
+        return userRepository.save(user);
     }
 }

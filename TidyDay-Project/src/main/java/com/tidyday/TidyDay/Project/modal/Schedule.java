@@ -22,6 +22,7 @@ public class Schedule {
 
      private String name;
      private String description;
+     private String category;
      private Date date;
      private Time time;
      private String place;
