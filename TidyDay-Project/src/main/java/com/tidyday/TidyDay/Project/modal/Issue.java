@@ -19,6 +19,7 @@ public class Issue {
     private String description;
     private String status;
     private String priority;
+    private String scheduleID;
     private LocalDate dueDate;
     private List<String> tags = new ArrayList<>();
 
