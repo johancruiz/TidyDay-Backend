@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a96529c1-add0-4d9e-945d-6ebc36151167" name="Changes" comment="" />
+    <list default="true" id="a96529c1-add0-4d9e-945d-6ebc36151167" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/EmailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/Issue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/Issue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/ScheduleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/ScheduleServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -39,6 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/johan/Documents/GitHub/TidyDay-Backend/TidyDay Project (1)/TidyDay-Project",
     "node.js.detected.package.eslint": "true",
@@ -55,7 +65,20 @@
       <recent name="com.tidyday.TidyDay.Project.config" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.TidyDayProjectApplication">
+    <configuration name="TidyDayProjectApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tidyday.TidyDay.Project.TidyDayProjectApplication" />
+      <module name="TidyDay-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tidyday.TidyDay.Project.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TidyDayProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="TidyDay-Project" />
@@ -64,6 +87,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TidyDayProjectApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>

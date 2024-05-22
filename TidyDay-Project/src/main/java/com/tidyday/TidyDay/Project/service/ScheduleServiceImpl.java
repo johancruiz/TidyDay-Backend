@@ -28,7 +28,7 @@ public class ScheduleServiceImpl  implements  ScheduleService{
     public Schedule createSchedule(Schedule schedule, User user) throws Exception {
         Schedule createdSchedule=new Schedule();
 
-        createdSchedule.setUser(user);
+        createdSchedule.setOwner(user);
         createdSchedule.setTags(schedule.getTags());
         createdSchedule.setName(schedule.getName());
         createdSchedule.setCategory(schedule.getCategory());

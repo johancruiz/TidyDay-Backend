@@ -32,14 +32,14 @@ public class Schedule {
      private List<String> tags = new ArrayList<>();
 
      @JsonIgnore
-     @OneToOne(mappedBy = "event", cascade = CascadeType.ALL,orphanRemoval = true)
+     @OneToOne(mappedBy = "schedule", cascade = CascadeType.ALL,orphanRemoval = true)
 
     private Chat chat;
 
      @ManyToOne
-     private User user;
+     private User owner;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<Issue> issues = new ArrayList<>();
 
     @ManyToMany
