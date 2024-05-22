@@ -30,7 +30,7 @@ public class ScheduleController {
             @RequestHeader("Authorization") String jwt
 
     )throws Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         List<Schedule> Schedules=scheduleService.getScheduleByTeam(user,category,tag);
         return new ResponseEntity<>(Schedules, HttpStatus.OK);
     }
@@ -41,7 +41,7 @@ public class ScheduleController {
             @RequestHeader("Authorization") String jwt
 
     )throws  Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         Schedule schedule=scheduleService.getScheduleById(ScheduleId);
         return new ResponseEntity<>(schedule, HttpStatus.OK);
     }
@@ -52,7 +52,7 @@ public class ScheduleController {
             @RequestBody Schedule schedule
 
     )throws  Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         Schedule createdschedule=scheduleService.createSchedule(schedule,user);
         return new ResponseEntity<>(createdschedule, HttpStatus.OK);
     }
@@ -64,7 +64,7 @@ public class ScheduleController {
             @RequestBody Schedule schedule
 
     )throws Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         Schedule updateschedule=scheduleService.updateSchedule(schedule,ScheduleId);
         return new ResponseEntity<>(updateschedule, HttpStatus.OK);
     }
@@ -75,7 +75,7 @@ public class ScheduleController {
             @RequestHeader("Authorization") String jwt
 
     )throws Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         scheduleService.deleteSchedule(ScheduleId,user.getId());
         MessageResponse res= new MessageResponse("Schedule deleted succesfully");
         return new ResponseEntity<>(res, HttpStatus.OK);
@@ -88,7 +88,7 @@ public class ScheduleController {
             @RequestHeader("Authorization") String jwt
 
     )throws Exception {
-        User user =userService.findUserProfileByJwt(Jwt);
+        User user =userService.findUserProfileByJwt(jwt);
         List<Schedule> Schedules=scheduleService.searchSchedules(keyword,user);
         return new ResponseEntity<>(Schedules, HttpStatus.OK);
     }
@@ -99,7 +99,7 @@ public class ScheduleController {
             @RequestHeader("Authorization") String jwt
 
     )throws  Exception {
-        User user=userService.findUserProfileJwt(Jwt);
+        User user=userService.findUserProfileByJwt(jwt);
         Chat chat=scheduleService.getChatByScheduleId(ScheduleId);
         return new ResponseEntity<>(chat, HttpStatus.OK);
     }
