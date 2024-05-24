@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IssueService {
-    Optional<Issue> getIssueById(Long userId) throws Exception;
+    Issue getIssueById(Long userId) throws Exception;
 
     List<Issue> getIssueByScheduleId(Long ScheduleId) throws Exception;
 
-    Issue createIssue(IssueRequest issue, Long userid) throws Exception;
+    Issue createIssue(IssueRequest issue, User user) throws Exception;
 
-    String deleteIssue(Long issueId, Long userid) throws Exception;
+    void deleteIssue(Long issueId, Long userid) throws Exception;
 
     Issue addUserToIssue(Long issueId, Long userId) throws Exception;
 
