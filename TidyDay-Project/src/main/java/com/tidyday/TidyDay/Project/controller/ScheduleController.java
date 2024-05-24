@@ -1,9 +1,12 @@
 package com.tidyday.TidyDay.Project.controller;
 
 import com.tidyday.TidyDay.Project.modal.Chat;
+import com.tidyday.TidyDay.Project.modal.Invitation;
 import com.tidyday.TidyDay.Project.modal.Schedule;
 import com.tidyday.TidyDay.Project.modal.User;
+import com.tidyday.TidyDay.Project.request.InviteRequest;
 import com.tidyday.TidyDay.Project.response.MessageResponse;
+import com.tidyday.TidyDay.Project.service.InvitationService;
 import com.tidyday.TidyDay.Project.service.ScheduleService;
 import com.tidyday.TidyDay.Project.service.UserService;
 import io.jsonwebtoken.Jwt;
@@ -21,7 +24,11 @@ public class ScheduleController {
     @Autowired
     private ScheduleService scheduleService;
 
+    @Autowired
     private UserService userService;
+
+    @Autowired
+    private InvitationService invitationService;
 
     @GetMapping
     public ResponseEntity<List<Schedule>>getSchedules(
@@ -36,7 +43,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/{ScheduleId}")
-    public ResponseEntity<Schedule>getSchedulebyId(
+    public ResponseEntity<Schedule>getScheduleById(
            @PathVariable Long ScheduleId,
             @RequestHeader("Authorization") String jwt
 
@@ -47,7 +54,7 @@ public class ScheduleController {
     }
 
     @PostMapping
-    public ResponseEntity<Schedule>createdschedule(
+    public ResponseEntity<Schedule>createSchedule(
             @RequestHeader("Authorization") String jwt,
             @RequestBody Schedule schedule
 
@@ -58,7 +65,7 @@ public class ScheduleController {
     }
 
     @PatchMapping("/{scheduleId}")
-    public ResponseEntity<Schedule>updateschedule(
+    public ResponseEntity<Schedule>updateSchedule(
             @PathVariable Long ScheduleId,
             @RequestHeader("Authorization") String jwt,
             @RequestBody Schedule schedule
@@ -70,7 +77,7 @@ public class ScheduleController {
     }
 
     @DeleteMapping("/{scheduleId}")
-    public ResponseEntity<MessageResponse>deleteschedule(
+    public ResponseEntity<MessageResponse>deleteSchedule(
             @PathVariable Long ScheduleId,
             @RequestHeader("Authorization") String jwt
 
@@ -102,5 +109,34 @@ public class ScheduleController {
         User user=userService.findUserProfileByJwt(jwt);
         Chat chat=scheduleService.getChatByScheduleId(ScheduleId);
         return new ResponseEntity<>(chat, HttpStatus.OK);
+    }
+
+    @PostMapping("/invite")
+    public ResponseEntity<MessageResponse>inviteSchedule(
+            @RequestBody InviteRequest req,
+            @RequestHeader("Authorization") String jwt,
+            @RequestBody Schedule schedule
+
+    )throws  Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+        invitationService.sendInvitation(req.getEmail(), req.getScheduleId());
+        MessageResponse res = new MessageResponse("User invitation sent");
+
+        return new ResponseEntity<>(res, HttpStatus.OK);
+    }
+
+    @GetMapping("/accept_invitation")
+    public ResponseEntity<Invitation>acceptInviteSchedule(
+            @RequestBody String token,
+            @RequestHeader("Authorization") String jwt,
+            @RequestBody Schedule schedule
+
+    )throws  Exception {
+        User user=userService.findUserProfileByJwt(jwt);
+        Invitation invitation = invitationService.acceptInvitation(token, user.getId());
+        scheduleService.addUserToSchedule(invitation.getScheduleId(), user.getId());
+
+
+        return new ResponseEntity<>(invitation, HttpStatus.ACCEPTED);
     }
 }

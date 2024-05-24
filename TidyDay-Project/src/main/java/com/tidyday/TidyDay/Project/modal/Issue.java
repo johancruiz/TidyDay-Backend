@@ -2,7 +2,9 @@ package com.tidyday.TidyDay.Project.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Issue {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,7 +23,7 @@ public class Issue {
     private String description;
     private String status;
     private String priority;
-    private String scheduleID;
+    private Long scheduleID;
     private LocalDate dueDate;
     private List<String> tags = new ArrayList<>();
 

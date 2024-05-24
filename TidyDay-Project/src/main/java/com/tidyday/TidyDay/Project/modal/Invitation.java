@@ -20,6 +20,6 @@ public class Invitation {
 
     private String token;
     private String email;
-    private Long projectId;
+    private Long scheduleId;
 
 }
