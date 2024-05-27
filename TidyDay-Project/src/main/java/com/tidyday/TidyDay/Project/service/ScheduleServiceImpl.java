@@ -121,7 +121,6 @@ public class ScheduleServiceImpl  implements  ScheduleService{
 
     @Override
     public List<Schedule> searchSchedules(String keyword, User user) throws Exception {
-        String partialName="%" + keyword + "%";
 
         return scheduleRepository.findByNameContainingAndTeamContains(keyword, user);
     }
