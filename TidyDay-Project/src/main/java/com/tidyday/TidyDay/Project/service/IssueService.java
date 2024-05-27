@@ -4,10 +4,10 @@ package com.tidyday.TidyDay.Project.service;
 import com.tidyday.TidyDay.Project.modal.Issue;
 import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.request.IssueRequest;
-import jdk.jshell.spi.ExecutionControl;
+
 
 import java.util.List;
-import java.util.Optional;
+
 
 public interface IssueService {
     Issue getIssueById(Long userId) throws Exception;
