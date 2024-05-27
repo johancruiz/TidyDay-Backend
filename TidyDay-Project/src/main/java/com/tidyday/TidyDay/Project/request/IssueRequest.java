@@ -12,6 +12,6 @@ public class IssueRequest {
     private String description;
     private String status;
     private String priority;
-    private String scheduleId;
+    private Long scheduleId;
     private LocalDate dueDate;
 }

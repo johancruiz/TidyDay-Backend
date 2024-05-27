@@ -50,7 +50,7 @@ public class InvitationServiceImpl implements InvitationService{
 
     @Override
     public void deleteToken(String token) {
-        Invitation invitation=invitationRepository.findByToken(token)
+        Invitation invitation=invitationRepository.findByToken(token);
         invitationRepository.delete(invitation);
 
     }

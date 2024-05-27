@@ -93,6 +93,6 @@ public class IssueController {
         Issue issue= issueService.updateStatus(issueId,status);
         return ResponseEntity.ok(issue);
     }
-    
+
 
 }
