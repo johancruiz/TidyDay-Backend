@@ -75,14 +75,24 @@ public class IssueController {
 
         return ResponseEntity.ok(res);
 
-
-        @PutMapping("/{issueId}/assignee/{userId}")
-        public ResponseEntity<Issue> addUserToIssue(@PathVariable Long issueId,
-                                                    @PathVariable Long userId)
-                    
-
-
-
     }
+
+    @PutMapping("/{issueId}/assignee/{userId}")
+    public ResponseEntity<Issue> addUserToIssue(@PathVariable Long issueId,
+                                                @PathVariable Long userId)
+
+        throws  Exception{
+        Issue issue = issueService.addUserToIssue(issueId,userId);
+        return ResponseEntity.ok(issue);
+    }
+
+    @PutMapping("/{issueId}/status/{status}")
+    public  ResponseEntity<Issue>updateIssueStatus(
+            @PathVariable String status,
+            @PathVariable Long issueId)throws  Exception{
+        Issue issue= issueService.updateStatus(issueId,status);
+        return ResponseEntity.ok(issue);
+    }
+    
 
 }
