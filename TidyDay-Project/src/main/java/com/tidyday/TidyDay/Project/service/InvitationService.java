@@ -3,7 +3,7 @@ package com.tidyday.TidyDay.Project.service;
 import com.tidyday.TidyDay.Project.modal.Invitation;
 import org.springframework.stereotype.Service;
 
-@Service
+
 public interface InvitationService {
     public void sendInvitation(String email, Long scheduleId) throws Exception;
 
