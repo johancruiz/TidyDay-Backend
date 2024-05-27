@@ -3,8 +3,10 @@ package com.tidyday.TidyDay.Project.controller;
 import com.tidyday.TidyDay.Project.modal.Issue;
 import com.tidyday.TidyDay.Project.modal.IssueDTO;
 import com.tidyday.TidyDay.Project.modal.User;
+import com.tidyday.TidyDay.Project.request.IssueRequest;
 import com.tidyday.TidyDay.Project.response.AuthResponse;
 import com.tidyday.TidyDay.Project.response.MessageResponse;
+import com.tidyday.TidyDay.Project.service.IssueService;
 import com.tidyday.TidyDay.Project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +21,7 @@ import java.util.List;
 public class IssueController {
 
     @Autowired
-    private  IssueService issueService;
+    private IssueService issueService;
 
     @Autowired
     private UserService userService;
@@ -32,7 +34,7 @@ public class IssueController {
     @GetMapping("/schedule/{scheduleId}")
     public  ResponseEntity<List<Issue>> getIssueByscheduleId(@PathVariable Long scheduleId)
         throws  Exception {
-        return  ResponseEntity.ok(issueService.getIssueBySceduleId(scheduleId));
+        return  ResponseEntity.ok(issueService.getIssueByScheduleId(scheduleId));
     }
 
     @PostMapping
@@ -62,7 +64,7 @@ public class IssueController {
     }
 
     @DeleteMapping("/{issueId}")
-    public ResponseEntity<MessageResponse> deleteissue(@PathVariable Long issueId,
+    public ResponseEntity<MessageResponse> deleteIssue(@PathVariable Long issueId,
                                                        @RequestHeader("Authorization") String token)
             throws  Exception{
         User user = userService.findUserProfileByJwt(token);
