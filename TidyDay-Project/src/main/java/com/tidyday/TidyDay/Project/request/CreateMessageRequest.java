@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CreateMessageRequest {
-<<<<<<< HEAD
+
 
     private Long SenderId;
 
@@ -12,9 +12,5 @@ public class CreateMessageRequest {
 
     private Long scheduleId;
 
-=======
-    private Long senderId;
-    private String content;
-    private Long scheduleId;
->>>>>>> 1319fb3caeadad7ffb48e4d777a22c8f2b5eb030
+
 }
