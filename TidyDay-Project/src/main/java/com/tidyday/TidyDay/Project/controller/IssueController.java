@@ -4,13 +4,10 @@ import com.tidyday.TidyDay.Project.modal.Issue;
 import com.tidyday.TidyDay.Project.modal.IssueDTO;
 import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.request.IssueRequest;
-import com.tidyday.TidyDay.Project.response.AuthResponse;
 import com.tidyday.TidyDay.Project.response.MessageResponse;
 import com.tidyday.TidyDay.Project.service.IssueService;
 import com.tidyday.TidyDay.Project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
