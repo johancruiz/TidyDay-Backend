@@ -1,6 +1,8 @@
 package com.tidyday.TidyDay.Project.controller;
 
+import com.tidyday.TidyDay.Project.modal.Subscription;
 import com.tidyday.TidyDay.Project.modal.User;
+import com.tidyday.TidyDay.Project.service.SubscriptionService;
 import com.tidyday.TidyDay.Project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,7 +26,7 @@ public class SubscriptionController {
 
         User user = userService.findUserProfileByJwt(jwt);
 
-        Subscription subscription = subscriptionService.getUsersSubscription(user.getId());
+        Subscription subscription = subscriptionService.getUserSubscription(user.getId());
 
         return  new ResponseEntity<>(subscription, HttpStatus.OK);
     }

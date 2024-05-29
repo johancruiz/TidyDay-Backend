@@ -7,6 +7,7 @@ import com.tidyday.TidyDay.Project.repository.UserRepository;
 import com.tidyday.TidyDay.Project.request.LoginRequest;
 import com.tidyday.TidyDay.Project.response.AuthResponse;
 import com.tidyday.TidyDay.Project.service.CustomerUserDetailslmpl;
+import com.tidyday.TidyDay.Project.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -51,11 +52,10 @@ public class AuthController {
 
         User savedUser = userRepository.save(createdUser);
 
-<<<<<<< HEAD
-        subscriptionService.createSubscription(savedUser);
-=======
 
->>>>>>> 1319fb3caeadad7ffb48e4d777a22c8f2b5eb030
+        subscriptionService.createSubscription(savedUser);
+
+
 
         Authentication authentication =new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);

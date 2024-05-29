@@ -4,6 +4,7 @@ import com.tidyday.TidyDay.Project.modal.Chat;
 import com.tidyday.TidyDay.Project.modal.Message;
 import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.request.CreateMessageRequest;
+import com.tidyday.TidyDay.Project.service.MessageService;
 import com.tidyday.TidyDay.Project.service.ScheduleService;
 import com.tidyday.TidyDay.Project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.List;
 public class MessageController {
 
     @Autowired
-    private  MessageService messageService;
+    private MessageService messageService;
 
     @Autowired
     private UserService userService;
@@ -32,7 +33,7 @@ public class MessageController {
 
         User user = userService.findByUserId(request.getSenderId());
 
-        Chat chats =  ScheduleService.getScheduleById(request.getScheduleId()).getChat();
+        Chat chats =  scheduleService.getScheduleById(request.getScheduleId()).getChat();
 
 
         if (chats==null)throw  new Exception("chats no found");
