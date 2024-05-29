@@ -40,8 +40,9 @@ public class MessageServiceImpl implements MessageService {
     }
 
     @Override
-    public List<Message> getMessageByProjectId(Long projectId) throws Exception {
-        Chat chat = scheduleService.getScheduleById()
-        return null;
+    public List<Message> getMessageByScheduleId(Long scheduleId) throws Exception {
+        Chat chat = scheduleService.getChatByScheduleId(scheduleId);
+        List<Message> findByChatIdOrderByCreatedAtAsc = messageRepository.findByChatIdOrderByCreatedAtAsc(chat.getId());
+        return findByChatIdOrderByCreatedAtAsc;
     }
 }

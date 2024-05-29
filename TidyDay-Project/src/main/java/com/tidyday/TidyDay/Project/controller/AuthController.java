@@ -47,6 +47,8 @@ public class AuthController {
 
         User savedUser = userRepository.save(createdUser);
 
+
+
         Authentication authentication =new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
