@@ -1,5 +1,6 @@
 package com.tidyday.TidyDay.Project.controller;
 
+import com.tidyday.TidyDay.Project.modal.PlanType;
 import com.tidyday.TidyDay.Project.modal.Subscription;
 import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.service.SubscriptionService;
@@ -30,5 +31,18 @@ public class SubscriptionController {
 
         return  new ResponseEntity<>(subscription, HttpStatus.OK);
     }
+
+    @PatchMapping("/upgrade")
+    public ResponseEntity<Subscription> upgradeSubscription(
+            @RequestHeader("Authorization")String jwt,
+            @RequestParam PlanType planType) throws  Exception{
+        User user= userService.findUserProfileByJwt(jwt);
+
+        Subscription subscription = subscriptionService.upgradeSubscription(user.getId(),planType);
+
+        return new ResponseEntity<>(subscription,HttpStatus.OK);
+    }
+
+    )
 
 }
