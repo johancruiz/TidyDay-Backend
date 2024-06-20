@@ -14,7 +14,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "full_name")
     private String fullName;
     private String email;
 
@@ -22,7 +21,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy ="assignee",cascade = CascadeType.ALL)
-    private List<Issue>assigneIssues = new ArrayList<>();
+    private List<Issue>assignedIssues = new ArrayList<>();
 
     private int projectSize;
 

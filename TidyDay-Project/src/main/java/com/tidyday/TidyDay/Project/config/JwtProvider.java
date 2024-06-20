@@ -24,8 +24,6 @@ public class JwtProvider {
 
     public static String getEmailFromToken(String jwt){
         // Bearer token
-
-
         jwt = jwt.substring(7);
 
 

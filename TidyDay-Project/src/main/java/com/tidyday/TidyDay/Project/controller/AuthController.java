@@ -6,7 +6,7 @@ import com.tidyday.TidyDay.Project.modal.User;
 import com.tidyday.TidyDay.Project.repository.UserRepository;
 import com.tidyday.TidyDay.Project.request.LoginRequest;
 import com.tidyday.TidyDay.Project.response.AuthResponse;
-import com.tidyday.TidyDay.Project.service.CustomerUserDetailslmpl;
+import com.tidyday.TidyDay.Project.service.CustomerUserDetailsImpl;
 import com.tidyday.TidyDay.Project.service.SubscriptionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,46 +30,42 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
-    private CustomerUserDetailslmpl customerUserDetails;
+    private CustomerUserDetailsImpl customerUserDetails;
 
 
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @PostMapping("/signup")
-    public ResponseEntity<AuthResponse>createUserHandler(@RequestBody User user) throws Exception {
+    @PostMapping("/signUp")
+    public ResponseEntity<AuthResponse> createUserHandler(@RequestBody User user) throws Exception {
+        User isUserExist = userRepository.findByEmail(user.getEmail());
 
-        User isUserExist=userRepository.findByEmail(user.getEmail());
-
-        if(isUserExist != null){
+        if (isUserExist != null) {
             throw new Exception("Email already exist with another account");
         }
 
         User createdUser = new User();
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        createdUser.setEmail((user.getEmail()));
-        createdUser.setFullName(user.getFullName());
+        createdUser.setEmail(user.getEmail());
+        createdUser.setFullName(user.getFullName()); // <--- Add this line
 
         User savedUser = userRepository.save(createdUser);
 
-
         subscriptionService.createSubscription(savedUser);
 
-
-
-        Authentication authentication =new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword());
+        Authentication authentication = new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        String jwt= JwtProvider.generateToken(authentication);
+        String jwt = JwtProvider.generateToken(authentication);
 
         AuthResponse res = new AuthResponse();
-        res.setMessage("signup success");
+        res.setMessage("signUp success");
         res.setJwt(jwt);
 
         return new ResponseEntity<>(res, HttpStatus.CREATED);
     }
 
-    @PostMapping("/signing")
+    @PostMapping("/signIn")
     public ResponseEntity<AuthResponse>signing(@RequestBody LoginRequest loginRequest){
 
         String username=loginRequest.getEmail();
@@ -81,7 +77,7 @@ public class AuthController {
         String jwt= JwtProvider.generateToken(authentication);
 
         AuthResponse res =new AuthResponse();
-        res.setMessage("signing success");
+        res.setMessage("signIn success");
         res.setJwt(jwt);
 
         return new ResponseEntity<>(res, HttpStatus.CREATED);
