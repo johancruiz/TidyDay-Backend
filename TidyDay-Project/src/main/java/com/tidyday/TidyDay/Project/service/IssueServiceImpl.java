@@ -34,7 +34,7 @@ public class IssueServiceImpl implements IssueService{
 
     @Override
     public List<Issue> getIssueByScheduleId(Long scheduleId) throws Exception {
-        return issueRepository.findByScheduleID(scheduleId);
+        return issueRepository.findByScheduleId(scheduleId);
     }
 
     @Override
