@@ -76,7 +76,7 @@ public class ScheduleController {
         return new ResponseEntity<>(updateschedule, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{scheduleId}")
+    @DeleteMapping("/{ScheduleId}")
     public ResponseEntity<MessageResponse>deleteSchedule(
             @PathVariable Long ScheduleId,
             @RequestHeader("Authorization") String jwt
@@ -84,7 +84,7 @@ public class ScheduleController {
     )throws Exception {
         User user=userService.findUserProfileByJwt(jwt);
         scheduleService.deleteSchedule(ScheduleId,user.getId());
-        MessageResponse res= new MessageResponse("Schedule deleted succesfully");
+        MessageResponse res= new MessageResponse("Schedule deleted Succesfully");
         return new ResponseEntity<>(res, HttpStatus.OK);
     }
 

@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a96529c1-add0-4d9e-945d-6ebc36151167" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/config/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/config/JwtProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/controller/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/modal/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/CustomerUserDetailslmpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/service/CustomerUserDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tidyday/TidyDay/Project/controller/ScheduleController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
